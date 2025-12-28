@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const db = require('./db/database');
+const { initializeDatabase } = require('./db/database');
 const entriesRouter = require('./routes/entries');
 
 const app = express();
@@ -18,8 +18,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Avvia il server
-app.listen(PORT, () => {
-  console.log(`\n✅ Server avviato su http://localhost:${PORT}`);
-  console.log(`📱 Apri il browser e vai su http://localhost:${PORT}\n`);
-});
+// Avvia il server dopo aver inizializzato il DB
+async function start() {
+  await initializeDatabase();
+  app.listen(PORT, () => {
+    console.log(`\n✅ Server avviato su http://localhost:${PORT}`);
+    console.log(`📱 Apri il browser e vai su http://localhost:${PORT}\n`);
+  });
+}
+
+start();

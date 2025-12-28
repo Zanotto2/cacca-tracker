@@ -5,12 +5,10 @@ services:
     plan: free
     buildCommand: npm install
     startCommand: npm start
-    disk:
-      name: data
-      mountPath: /data
-      sizeGB: 1
     envVars:
-      - key: DB_PATH
-        value: /data/cacca-tracker.sqlite
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
       - key: NODE_ENV
         value: production
