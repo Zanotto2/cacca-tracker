@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cacca Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🚽 Cacca Tracker</h1>
+    <p class="subtitle">Registra i tuoi eventi giornalieri</p>
+
+    <!-- FORM DI INPUT -->
+    <div class="form-section">
+      <h2>Aggiungi nuovo evento</h2>
+      <form id="entryForm">
+        <div class="form-group">
+          <label for="inputDate">Data:</label>
+          <input type="date" id="inputDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputTime">Ora:</label>
+          <input type="time" id="inputTime" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputCount">Numero di volte:</label>
+          <input type="number" id="inputCount" min="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="inputNote">Note (opzionale):</label>
+          <textarea id="inputNote" rows="3" placeholder="Es: Dolore, consistenza, ecc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registra evento</button>
+      </form>
+    </div>
+
+    <!-- TABELLA DEGLI EVENTI -->
+    <div class="table-section">
+      <h2>Storico eventi</h2>
+      <div id="loadingMessage" class="loading">Caricamento in corso...</div>
+      <table id="entriesTable" class="entries-table" style="display: none;">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Volte</th>
+            <th>Note</th>
+            <th>Registrato il</th>
+          </tr>
+        </thead>
+        <tbody id="entriesBody">
+          <!-- Righe dinamiche -->
+        </tbody>
+      </table>
+      <div id="emptyMessage" class="empty-message" style="display: none;">
+        Nessun evento registrato. Aggiungi il primo evento!
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

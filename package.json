@@ -1,0 +1,27 @@
+{
+  "name": "cacca-tracker",
+  "version": "1.0.0",
+  "description": "Un semplice tracker web per registrare e monitorare gli eventi giornalieri.",
+  "main": "server.js",
+  "scripts": {
+  "start": "node server.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zanotto2/cacca-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Zanotto2/cacca-tracker/issues"
+  },
+  "homepage": "https://github.com/Zanotto2/cacca-tracker#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.5.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {}
+}

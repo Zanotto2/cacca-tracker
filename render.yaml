@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: cacca-tracker
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DB_PATH
+        value: /data/cacca-tracker.sqlite
+      - key: NODE_ENV
+        value: production
